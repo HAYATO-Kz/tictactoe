@@ -20,6 +20,8 @@ public class TicTacToeGame {
 	
 	private Player nextPlayer = Player.X;
 	
+	private int count = 0 ;
+	
 	public TicTacToeGame(int size) {
 		this.boardsize = size;
 		board = new Board(boardsize,boardsize);   // view of the gameboard
@@ -85,7 +87,6 @@ public class TicTacToeGame {
 	public Player winner() {
 		// This is fast but hacky and only works when the
 		// number of pieces in a line to win (3) equals board size (3).
-		
 		// Look for N matching pieces on same row.
 		rowtest:
 		for(int row=0; row<boardsize; row++) {
@@ -108,16 +109,30 @@ public class TicTacToeGame {
 			return p;
 		}
 		// Look for N matching pieces on downward diagonal.
+		count = 0 ;
 		Player p = pieces[0][0].type;
-		if (p != Player.NONE && p == pieces[1][1].type && p == pieces[2][2].type) {
-			// all pieces on diagonal occupied by same type (Player)
-			return p;
+		if (p != Player.NONE ) {
+			for ( int i = 1 ; i < boardsize ; i++ ) {
+				if( p == pieces[i][i].type) {
+					count++; 
+				}
+			}
+				if ( count == boardsize-1) {
+					return p;
+				}
 		}
+		count = 0 ;
 		// Look for N matching pieces on upward diagonal
-		p = pieces[0][2].type; // start at lower-left corner
-		if (p != Player.NONE && p == pieces[1][1].type && p == pieces[2][0].type) {
-			// all pieces on diagonal occupied by same type (Player)
-			return p;
+		p = pieces[0][boardsize-1].type; // start at lower-left corner
+		if (p != Player.NONE ) {
+			for ( int j = 1 ; j < boardsize ; j++ ) {
+				if( p == pieces[j][boardsize-(j+1)].type) {
+					count++; 
+			}
+				if ( count == boardsize-1) {
+					return p;
+				}
+			}
 		}
 		return Player.NONE;
 	}
