@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "tictactoe",
+                "projectName": "tictactoe",
+                "workingDirectory": "/Users/hayato/Desktop/tictactoe",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "tictactoe",
+                "projectName": "tictactoe",
+                "workingDirectory": "/Users/hayato/Desktop/tictactoe",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
