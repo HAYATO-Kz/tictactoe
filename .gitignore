@@ -2,6 +2,7 @@ bin/
 build/
 out/
 # lib is automatically populated by Ant task
+lib.dir/
 lib/
 .classpath
 .project
@@ -9,3 +10,5 @@ lib/
 runtests.sh
 demo-ci.jar
 build-all.jar
+.vscode
+.DS_Store
